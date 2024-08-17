@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Added products
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+    <div class="row" style="margin-left: -0.5rem; margin-right: -0.5rem;">
+    
+        {% for item in products %}
+          <div class="col-md-4" style="padding-left: 0.5rem; padding-right: 0.5rem; margin-top: 100px">
+            <div class="card h-100">
+              <img src="{{ item.image.url }}" class="img card-img-top img-thumbnail" alt="...">
+              <div class="card-body" style="padding: 0.5rem;">
+                <h5 class="card-title">Plant Name: {{ item.product_name }}</h5>
+                <h5 class="card-title">Price: {{ item.price }}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0.5rem;">Category: {{ item.category }}</li>
+                <li class="list-group-item" style="padding: 0.5rem;">Owned By: {{ item.shop_name }}</li>
+              </ul>
+              <div class="card-body" style="padding: 0.5rem;">
+                <a id="deletecheck" type="button" onclick="return deleteplant()" href="{% url 'delete_cartitem' item.id %}" class="card-link delete-button">Delete</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+<script>
+  function deleteplant() {
+    return confirm("Are you sure you want to delete?");
+  }
+  
+  function navigateToNextPage() {
+    window.location.href = "order_summary.html"; // Replace with the correct URL name
+  }
+</script>
+
+{% endblock %}

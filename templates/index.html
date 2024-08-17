@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Home
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+
+  <!-- slide section -->
+<section>
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static '\images\home-garden-arrangement-with-copy-space.jpg' %}" class="d-block w-100" alt="..." style="position: relative;">
+        <p style="color: white;z-index: 10;position: absolute;top: 45%;left: 21%;font-family: oswald,sans-serif;font-size: 35px;">Blooming Deals: Your One-Stop Shop for All Things Green</p>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '\images\tropical-greenery-covering-background.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="false"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+  
+
+  
+  <section style="margin-top: 30px;margin-bottom: 100px;z-index: 10;position: relative;">
+    <div class="scroll-container">
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\elegant-eucalyptus-background.jpg' %}" alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\indoor-plants-studio (1).jpg' %}"  alt="Cinque Terre">
+      </div>      
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\sustainability-concept-with-blank-geometric-forms-growing-plant.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\beautiful-still-life-with-herbal-medicine.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\green-houseplant-background-plant-lovers.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\pexels-nietjuh-776656.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\elegant-eucalyptus-background.jpg' %}" alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\indoor-plants-studio (1).jpg' %}"  alt="Cinque Terre">
+      </div>      
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\sustainability-concept-with-blank-geometric-forms-growing-plant.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\beautiful-still-life-with-herbal-medicine.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\green-houseplant-background-plant-lovers.jpg' %}"  alt="Cinque Terre">
+      </div>
+      
+      <div class="card-slide">
+        <img class="rounded-image" src="{% static '\images\pexels-nietjuh-776656.jpg' %}"  alt="Cinque Terre">
+      </div>
+    
+    </div>
+  </section>
+
+  <section>
+    <img class="shopping-pointer-img" src="{% static '\images\Sitout_Area_Final-2.webp' %}" alt="">
+  </section>
+  
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+  
+  
+ 
+{% endblock %}
+
+

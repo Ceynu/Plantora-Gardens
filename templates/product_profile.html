@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Plant shop Registration
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+
+  
+<!-- <div class="container">
+  <div class="row" style="height: auto;">
+    <div class="col-xs-4 col-md-4 col-4 col-lg-4 col-xl-4">
+      <div class="card" style="width: 18rem;margin-left: 90px;margin-top: 150px;height: 350px;width: 300px;border-radius:0px ;border: 1px 0px 1px 1px solid #d3d3d3;">
+        <img src="{{product.image.url}}"  alt="..." style="height: 100%;">
+      </div>
+    </div>
+    <div class="col-xs-4 col-md-4 col-4 col-lg-4 col-xl-4">
+      <div class="card" style="height: auto;width: 600px;margin-top: 150px;margin-left: 10px;border-radius: 0px;border: 1px 1px 1px 0px solid #d3d3d3;">
+        <div style="margin-left: 30px;margin-top: 40px;">
+          <div>
+            <div class="description">
+              <h2>{{product.plant_name}}</h2>
+              <h4>{{product.category}}</h4><hr>
+              <h1><sup>₹</sup>{{product.price}}</h1><hr>
+              <p style="color: #797978;">{{product.description}}</p><hr>
+              <form action="{% url 'add_product_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                <input type="number" name="quantity" value="{{ cartitemsec.quantity|default:1 }}" min="1" max="">
+                <button type="submit" style="border: 2px solid #d3d3d3;margin-left: 225px;color: #6d6d6b;background-color: white;">Add To Cart</button>
+              </form>
+              
+              
+            </div>
+          </div>
+            
+        </div>
+    </div>
+  </div>
+</div>
+</div> -->
+
+
+<div class="card mb-3" style="margin-top: 150px;max-width: 750px; height: 300px;margin-left: 260px;">
+  <div class="row g-0">
+    <div class="col-md-4" style="height: 100%;">
+      <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{product.plant_name}}</h5>
+        <h5 class="card-text">{{product.category}}</h5>
+        <p class="card-text"><small class="text-muted">₹ {{product.price}}</small>
+        <p class="card-text">{{product.description}}</p>
+        <!-- <form action="{% url 'add_product_to_cart' product.id %}" method="post" class="row g-3">
+          {% csrf_token %}
+          <div class="col-auto">
+            <input type="number" name="quantity" value="{{ cartitemsec.quantity|default:1 }}" min="1" max="">
+          </div>
+          <div class="col-auto">
+            <button type="submit" style="border: 2px solid #d3d3d3;margin-left: 225px; background-color: white;">Add To Cart</button>
+          </div>
+        </form> -->
+        <form action="{% url 'add_product_to_cart' product.id %}" method="post" class="row g-3">
+          {% csrf_token %}
+          <div class="col-auto">
+            <label for="" style="margin-top: 4px;">Quantity :</label>
+          </div>
+          <div class="col-auto">
+            <!-- <label for="inputPassword2">Quantity</label> -->
+            <input type="number" name="quantity" value="{{ cartitemsec.quantity|default:1 }}" min="1" max="" class="form-control" id="inputPassword2" placeholder="Quantity" style="width: 60px;border: 2px solid rgb(194, 191, 191);">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn mb-3" style="background-color: #658147;color: white;border: 2px solid rgb(194, 191, 191);">Add To Cart</button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                    
+{%endblock%}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Plants
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="container">
+    <div class="row" style="margin-left: 15px;">
+      <div class="hstack gap-3">
+  <div class="cat"><a href="{% url 'product_list_all' %}">All</a></div>
+  <div class="cat"><a href="{% url 'product_list_indoor' %}">Indoor</a></div>
+  <div class="cat"><a href="{% url 'product_list_flowering' %}">Flowering</a></div>
+  <div class="cat"><a href="{% url 'product_list_fruit' %}">Fruit Plants</a></div>
+  <div class="cat"><a href="{% url 'product_list_hanging' %}">Hanging</a></div>
+  <div class="cat"><a href="{% url 'product_list_cacti' %}">Cacti</a></div>
+  <div class="cat"><a href="#third-item">Succulent</a></div>
+  <div class="cat"><a href="#third-item">Plastic Pots</a></div>
+  <div class="cat"><a href="#third-item">Ceramic Pots</a></div>
+  <div class="cat"><a href="#third-item">Garden Tools</a></div>
+</div>
+
+      {% for plant in product %}
+        <div class="col-md-4" style="padding-left: 0.5rem; padding-right: 0.5rem; margin-top: 85px; height: 450px;width:180px ;">
+          <a href="{% url 'product_profile' plant.id %}" style="text-decoration: none;color: black;">
+          <div class="card h-100">
+            <img src="{{plant.image.url}}" class="img img-thumbnail" alt="..." style="height: 160px;width: 100%;">
+            <!-- <img src="" class="card-img-top" alt="..."> -->
+            <div class="card-body" style="padding: 0.5rem;">
+              <h5 class="card-title" style="font-size: 17px;font-weight: bold;">{{plant.product_name}}</h5>
+              <h5 class="card-title" style="font-size: 15px; font-weight: bold;"> Price:<sup>₹</sup>{{plant.price}}</h5>
+              <p class="card-text" style="font-size: 10px;">{{plant.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush" style="font-size: 12px;">
+              <li class="list-group-item" style="padding: 0.5rem;" style="font-size: 10px;">Category: {{plant.category}}</li>
+              <li class="list-group-item" style="padding: 0.5rem;" style="font-size: 10px;">Owned By: {{plant.shop_name}}</li>
+              <!-- <li> -->
+                <!-- <div class="input-group mb-3"> -->
+                <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+                <!-- <input type="number" style="height: 30px;width: 50px;margin-left: 3px;;padding-bottom: 5px;" placeholder="Qty" aria-label="Username" aria-describedby="basic-addon1"> -->
+              <!-- </div> -->
+            <!-- </li> -->
+            </ul>
+            <div class="card-body" style="padding: 0.5rem;">
+            </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  
+{%endblock%}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Add Product
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+<form action="{% url 'add_product_save' %}" method="POST" enctype="multipart/form-data" style="margin: 30px 400px 30px 400px;">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+        <input type="text" name="product_name" class="form-control" placeholder="product_name" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <br>
+
+      <div class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+        <input type="text" name="price" class="form-control" placeholder="price" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <br>
+
+      <div class="input-group mb-3">
+        <select class="form-select" aria-label="Default select example" name="category">
+            <option selected>Open this select menu</option>
+            <option value="Indoor Plants">Indoor Plants</option>
+            <option value="Flowering Plants">Flowering Plants</option>
+            <option value="Fruit Plants">Fruit Plants</option>
+            <option value="Hanging Plants">Hanging Plants</option>
+            <option value="Cacti">Cacti</option>
+            <option value="Succulent">Succulent</option>
+            <option value="Plastic Pots">Plastic Pots</option>
+            <option value="Ceramic Pots">Ceramic Pots</option>
+            <option value="Planters">Planters</option>
+            <option value="Plant Stands">Plant Satnds</option>
+            <option value="Potting mix and Fertilizers">Potting mix and Fertilizers</option>
+            <option value="Garden Tools">Garden Tools</option>
+            <option value="Pest Control">Pest Control</option>
+          </select>
+
+      </div>
+
+      <br>
+
+      <div class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+        <input type="text" name="description" class="form-control" placeholder="description" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <br>
+
+      <div class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+        <input type="text" class="form-control" name="shop_name" placeholder="shop name" aria-label="Username" value="{{ res.name }}" aria-describedby="basic-addon1">
+      </div>
+
+      <br>
+
+      <div class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+        <input type="file" name="image" class="form-control" placeholder="image" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <br>
+      <button style="margin-left: 200px;border: 1px;background-color: rgb(151, 214, 145);border-radius: 4px;padding: 10px 20px 10px 20px;" type="submit">Add</button>
+
+
+
+
+</form>
+{%endblock%}

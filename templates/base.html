@@ -1,0 +1,635 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static '\images\Plantora__1_-removebg-preview (2) (1).ico' %}" />   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <title>{% block title %} {% endblock %}</title>
+    <style>
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+ div.scroll-container {
+  display: flex;
+      overflow-x: auto;
+      gap: 16px; /* Adjust gap between cards as needed */
+      padding: 20px;
+      scroll-snap-type: x mandatory; /* Ensures smooth snapping */
+      scroll-behavior: smooth;
+    }
+
+div.scroll-container::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
+
+  .card-slide {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 200px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #fff;
+      text-align: center;
+      scroll-snap-align: start; /* Ensures cards snap to start */
+    }
+
+.rounded-image{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+
+
+.navbar{
+  transition: all 0.5s;
+}
+.navbar-scrolled{
+        background-color: #bed69c;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+
+}
+body {
+            background-color: #000000;
+            /* padding-top: 130px; Adjust this based on your navbar height */
+        }
+
+.padding {
+    padding: 3rem !important;
+    margin-left: 200px
+}
+/* .card{
+  
+}
+.card:hover{
+  
+} */
+
+.card-no-border .card {
+    border-color: #d7dfe3;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+
+.img{
+  transition: all 0.3s;
+}
+
+.img:hover{
+  transform: scale(1.05);
+}
+
+.pro-img {
+    margin-top: -80px;
+    margin-bottom: 20px
+}
+
+.little-profile .pro-img img {
+    width: 128px;
+    height: 128px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 100%
+}
+
+html body .m-b-0 {
+    margin-bottom: 0px
+}
+
+h3 {
+    line-height: 30px;
+    font-size: 21px
+}
+
+.btn-rounded.btn-md {
+    padding: 12px 35px;
+    font-size: 16px
+}
+
+html body .m-t-10 {
+    margin-top: 10px
+}
+
+.btn-primary,
+.btn-primary.disabled {
+    background: #7460ee;
+    border: 1px solid #7460ee;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
+    -webkit-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in
+}
+
+.btn-rounded {
+    border-radius: 60px;
+    padding: 7px 18px
+}
+
+.m-t-20 {
+    margin-top: 20px
+}
+
+.text-center {
+    text-align: center !important
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #455a64;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem
+}
+
+.btn-1-btn-success-cart {
+        text-decoration: none;
+        background-color: #47572f;
+        color: whitesmoke;
+        /* padding: 5px; */
+        border-radius: 6px;
+        transition: background-color 0.3s, color 0.3s;
+        border: 1px solid white;
+    }
+
+    
+
+    .btn-1-btn-success-cart:hover {
+        background-color: #6b8e23; /* Change to a lighter green */
+        color: rgb(193, 188, 188); /* Change text color */
+    }
+
+
+    .buy-now-button {
+        text-decoration: none;
+        background-color: #47572f;
+        color: whitesmoke;
+        padding: 5px;
+        border: none;
+        border-radius: 1px solid white;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .buy-now-button:hover {
+        background-color: #6b8e23; /* Change to a lighter green */
+        color: rgb(193, 188, 188); /* Change text color */
+    }
+        
+    .delete-button {
+        text-decoration: none;
+        background-color: #47572f;
+        color: whitesmoke;
+        padding: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+        .delete-button:hover {
+        background-color: #6b8e23; /* Change to a lighter green */
+        color: rgb(193, 188, 188); /* Change text color */
+    }
+
+    
+    
+    
+
+.source-code-pro-fshp {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 20px;
+  font-style: normal;
+}
+
+/* .oswald-oswaldfshp> {
+  font-family: "Oswald";
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: oblique;
+} */
+.table {
+  width: 600px;
+  height: 50px;
+  margin-left: 280px;
+
+}
+
+.btn-over {
+    position: absolute;
+    z-index: 10;
+    top: 57%;
+    left: 52%;
+    transform: translate(-50%, -60%);
+    background-color: rgb(255, 255, 255);
+    border: rgb(170, 171, 170) 1px solid;
+    color: #484747;
+    font-family: oswald, sans-serif;
+    width: 120px;
+    height: 40;
+  }
+
+  .shopping-pointer-img{
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+  }
+
+  a.pointer-one{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    margin-left: 300px;
+  }
+  .footer-list li{
+    padding-top: 5px;
+    font-size: 15px;
+    color: #c8c2c2;
+    font-family: oswald,sans-serif;
+  }
+
+  .emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+.cat{
+  height: 25px;
+  width: 100%;
+  text-align: center;
+  background-color: #efe4b4;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 1px solid #a3b2c1;
+ 
+}
+.cat a{
+  text-decoration: none;
+  color:#605008 ;
+}
+</style>
+   
+</head>
+<body style="background-color: rgb(200, 249, 179);">
+
+  <!-- spinner -->
+ 
+<!-- spinner -->
+
+<!-- spinner script -->
+
+<!-- spinner script  -->
+
+  <script>
+
+
+    $(document).ready(function() {
+      var nav = $('.navbar');
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 14) {
+          nav.addClass('navbar-scrolled');
+        } else {
+          nav.removeClass('navbar-scrolled');
+        }
+      });
+    });
+ 
+
+  </script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+  
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+});
+  </script>
+
+<div class="hstack gap-3"style="background-color: #afd16b;align: center">
+  <div class="p-2" style="color: white;">Free Shipping above ₹499 | All India Delivery</div>
+  <div class="p-2" style="color: white; margin-left: 170px;">Thunder Sale Live | Shop Now</div>
+  <div class="p-2" style="color: white;margin-left: 200px;" >Organic Fertilisers to Boost Plant Growth</div>
+</div>
+  <!-- header -->
+  <header >
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(13, 76, 33);">
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body" style="margin-top: 700px;">
+          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+
+      <div class="container">
+       
+        <a class="navbar-brand" style="margin-left: 10px;font-family:source code pro;" href="{% url 'home' %}">PLANTORA GARDENS</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            
+
+
+            {% if request.session.cid %}
+              <li class="nav-tem">
+                <a class="nav-link active" aria-current="page" style="font-family:source code pro;" href="{% url 'customer_profile' %}">ACCOUNT</a>
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link active" aria-current="page" style="font-family:source code pro;" href="{% url 'product_list_view_for_customer' %}">EXPLORE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" style="font-family:source code pro;" href="{% url 'my_orders' %}">MY ORDERS</a>
+
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" style="font-family:source code pro;"  href="{% url 'cart_view' %}">CART</a>
+              </li>
+              <li class="nav-item">
+                <div style="height: 40px; width: 77px; background-color: none; margin-left: px; border-radius: 5px;">
+                  <a style="text-decoration:none; padding-top: 7px;padding-left: 5px; color: white;font-family:source code pro;" href="{% url 'logout' %}" type="submit">LOGOUT</a>
+                </div>
+              </li>
+              
+            {% elif request.session.psid %}
+            <li class="nav-tem">
+              <a class="nav-link active" aria-current="page" href="{% url 'plantshop_profile' %}"><b>ACCOUNT</b></a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link active" aria-current="page" href="{% url 'orders_got' %}"><b>ORDERS <span class="badge text-bg-secondary">1</span></b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'add_product' %}"><b>ADD PRODUCT</b></a>
+            </li>
+            <li>
+              <a class="nav-link active" aria-current="page" href="{% url 'my_products' %}"><b>MY PRODUCTS</b></a>
+            </li>
+            <li class="nav-item">
+              <div style="height: 40px; width: 77px; background-color: rgb(244, 240, 240); margin-left: px; border-radius: 5px; border: 1px solid; border-color: #47572f;">
+                <a class="btn" href="{% url 'logout' %}" type="submit">Logout</a>
+              </div>
+            </li>
+            
+            {% else %}
+
+              <li class="nav-item">
+                <a style="border-style: 1px solid white; color: white;" class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sign Up
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'customer_registration' %}">customer</a></li>
+                  <li><a class="dropdown-item" href="{% url 'plantshop_registration' %}">Plant shop</a></li>
+                </ul>
+              </li>
+              <div style="height: 30px 35px; width: 85px; background-color: rgb(13, 76, 33); text-align: justify; margin-right:10px; border: none; border-color: #47572f;">
+                <a class="btn" href="{% url 'login' %}" type="submit" style="margin-left: 3px;color: #fff;">Sign In</a>
+              </div>
+            {% endif %}
+            <form method="GET" action="{% url 'search_products' %}" class="d-flex" role="search">
+              <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 25px; width: 250px;margin-top: 8px;border-radius: 23px;margin-left: 10px;">
+              <button class="btn btn-outline-success" type="submit" style="font-family:source code pro;">Search</button>
+            </form>
+          </ul>
+            
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+<!-- header -->
+
+   {% block content %}
+
+   {% endblock %}
+
+<!--Footer-->
+<footer style="background-color: rgb(97, 119, 64); height: 250px; margin-top: 100px;width: 100%; ">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+      <h5 style="color: #b4b0b0;padding-top: 25px;padding-left: 30px;font-family: oswald,sans-serif;">GET IN TOUCH</h5>
+  <ul class="footer-list" style="list-style-type: none;padding-top: 10px;">  
+    <li >
+      <img src="{% static '\images\icons8-phone-100 (4).png' %}" style="height: 30px;width: 30px;">
+       <a style="color: #b4b0b0;" href="">+91 9539619201</a>
+    </li>
+    <li style="padding-top: 20px;">
+      <img src="{% static '\images\icons8-whatsapp-100 (3).png' %}" style="height: 30px;width: 30px;">
+      <a style="color: #b4b0b0;" href="">+91 9539619201</a>
+    </li>
+    <li style="padding-top: 20px;">
+      <img src="{% static '\images\icons8-email-100 (1).png' %}" style="height: 30px;width: 30px;">
+      <a style="color: #b4b0b0;" href="">plantoragardens@gmail.com</a>
+      
+    </li>
+    <li style="padding-top: 15px;">
+      <img src="{% static '\images\icons8-instagram-100 (2).png' %}" style="height: 30px;width: 30px;">
+      <a style="color: #b4b0b0;" href="">plantoragardens@gmail.com</a>
+      
+    </li>
+  </ul>
+</div>
+      <div class="col-md-4" style="padding-top: 25px;">
+
+      <h5  style="padding-left: 30px;color: #b4b0b0;font-family: oswald,sans-serif;">PLANTS</h5>
+      <ul class="footer-list" style="list-style-type: none;">
+        <li>
+          Fruit Plants
+        </li>
+        <li>
+          Flowering Plants
+        </li>
+        <li>
+          Vegetable Plants
+        </li>
+        <li>
+          Herbs
+        </li>
+        <li>
+          Succulents
+        </li>
+        <li>
+          Cacti
+        </li>
+      </ul>
+      </div>
+      <div class="col-md-4">
+        <iframe style="width: 115%;height: 90%;margin-top:7px;border-radius: 8px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.755741365633!2d76.24353407363816!3d10.981800455374795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7cdfef66d00ad%3A0xff15a97b9ab13ac4!2sPlantora%20Gardens!5e0!3m2!1sen!2sin!4v1723187298906!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</footer>
+        
+<!--Footer-->
+
+</body>
+
+</html>
+<!-- #bed69c -->

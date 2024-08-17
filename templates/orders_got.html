@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Orders Got
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+
+<!-- <div class="container">
+    <h1 style="margin-left: 430px;margin-top: 150px;">Order List</h1>
+    <br><br><br>
+</div> -->
+
+<table class="table table-striped" style="border: 2px solid paleturquoise;border-radius: 4px;margin-top: 150px; ">
+    <thead>
+        <th colspan="6" style="text-align: center;">ORDER LIST</th>
+    </thead>
+    <thead>
+        <th scope="col" style="padding: 30px;">Plant</th>
+        <th scope="col" style="padding: 30px;">Image</th>
+        <th scope="col" style="padding: 30px;">Quantity</th>
+        <th scope="col" style="padding: 30px;">Customer</th>
+        <th scope="'col" style="padding: 30px;">Address</th>
+        <th scope="col" style="padding: 30px;">Date</th>
+    </thead>
+    <tbody>
+        {% for address in result %}
+        <tr>
+            <td style="padding: 30px;">{{ address.user.product.product_name }}</td> 
+            <td style="padding: 30px;"><img src="{{ address.user.product.image.url }}" style="width: 50px ;height: 50px;"></td> 
+            <td style="padding: 30px;">{{ address.user.quantity }}</td>
+            <td style="padding: 30px;">{{ address.user.user.name }}</td>
+            <td style="padding: 30px;">{{address.street_address}},{{' '}}{{address.city}},{{' '}}{{address.state}},{{' '}}{{address.zipcode}},{{' '}}{{address.country}}</td>
+            <td style="padding: 30px;">{{ address.ordered_date }}</td>
+            
+        {% endfor %}
+           
+
+        
+            
+        </tr>
+    </tbody>
+</table>
+<ul>
+   
+</ul>
+
+{%endblock%}

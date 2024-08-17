@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<div class="container">
+    <div class="row" style="margin-left: -0.5rem; margin-right: -0.5rem;">
+    
+        {% for item in cartitem %}
+          <div class="col-md-4" style="padding-left: 0.5rem; padding-right: 0.5rem; margin-top: 100px">
+            <div class="card h-100">
+              <img src="{{ item.product.image.url }}" class="img card-img-top img-thumbnail" alt="...">
+              <div class="card-body" style="padding: 0.5rem;">
+                <h5 class="card-title">Plant Name: {{ item.product.product_name }}</h5>
+                <h5 class="card-title">Price: {{ item.product.price }}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="padding: 0.5rem;">Category: {{ item.product.category }}</li>
+                <li class="list-group-item" style="padding: 0.5rem;">Owned By: {{ item.product.shop_name }}</li>
+              </ul>
+              <div class="card-body" style="padding: 0.5rem;">
+                <a id="deletecheck" type="button" onclick="return deleteplant()" href="{% url 'delete_cartitem' item.id %}" class="card-link delete-button">Delete</a>
+              </div>
+              <form action="{% url 'proceed' item.id %}" method="post">
+                {% csrf_token %}
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="{{ item.quantity }}">
+                <button type="submit" class="card-link buy-now-button">Proceed</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+<script>
+  function deleteplant() {
+    return confirm("Are you sure you want to delete?");
+  }
+  
+  function navigateToNextPage() {
+    window.location.href = "order_summary.html"; // Replace with the correct URL name
+  }
+</script>
+
+{% endblock %}

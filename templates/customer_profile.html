@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Customer Profile
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+<!-- <div class="padding" style="margin-top: 100px; margin-left: 300px;">
+  <div class="col-md-8">
+      <!-- Column -->
+      <!-- <div class="card">
+          <div class="card-body little-profile text-center">
+              <h3 class="m-b-0">Name:{{result.name}} </h3>
+              <p>{{result.address}}</p> <a href="edit_customer/{{result.id}}" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Edit</a>
+              <a href="delete_customer/{{result.id}}" onclick="return deletecheck()" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Delete</a>
+              <div  class="row text-center m-t-20">
+                  <div  class="col-lg-4 col-md-4 m-t-20">
+                        <h3>Contact</h3>
+                      <h4 class="m-b-0 font-light"></h4><small>{{result.phone}}</small>
+                  </div>
+                  <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3></h3>
+                      <h4 class="m-b-0 font-light"></h4><small></small>
+                  </div>
+                  <div  class="col-lg-4 col-md-4 m-t-20">
+                    <h3>E-mail</h3>
+                  <h4 class="m-b-0 font-light"></h4><small>{{result.email}}</small>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+<!-- </div> --> 
+<div class="container emp-profile">
+  <form method="post">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-img">
+                  <img src="../media/{{result.image}}" alt=""/>
+                  <div class="file btn btn-lg btn-primary">
+                      Change Photo
+                      <input type="file" name="file"/>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="profile-head">
+                          <h5>
+                            {{result.name}}
+                          </h5>
+                          <h6>
+                            {{result.street_address}},{{' '}}{{result.city}},{{' '}}{{result.state}},{{' '}}{{result.zipcode}},{{' '}}{{result.country}}
+                          </h6>
+                          <h6>
+                            
+                          </h6>
+                
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="" role="tab" aria-controls="home" aria-selected="true">About</a>
+                      </li>
+                      
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-2">
+            <a type="button" href="edit_customer/{{result.id}}" class="profile-edit-btn">Edit profile</a>
+            <a type="button" href="delete_customer/{{result.id}}" class="profile-edit-btn">Delete</a>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-work">
+                  <a href="">CART</a><br/>
+                  <a href="">MY ORDERS</a><br/>
+                  <a href="">OFFERS AND DISCOUNTS!!</a>
+              </div>
+          </div>
+          <div class="col-md-8">
+              <div class="tab-content profile-tab" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <p>{{result.phone}}</p>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Address</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>{{result.street_address}},{{' '}}{{result.city}},{{' '}}{{result.state}},{{' '}}{{result.zipcode}},{{' '}}{{result.country}}</p>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Email</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>{{result.email}}</p>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <label>Phone</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <p>123 456 7890</p>
+                                  </div>
+                              </div>
+                            
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>           
+</div>
+<script>
+  function deletecheck()
+  {
+    return confirm("Are you sure want to delete?");
+  }
+</script>
+{% endblock %}

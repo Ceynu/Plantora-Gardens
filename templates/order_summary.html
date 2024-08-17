@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Order Summary
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+<div class="accordion" id="accordionPanelsStayOpenExample" style="margin-top: 100px;margin-left: 30px;margin-right: 30px; border-radius: 4px;">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          <b>Order Summary</b>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body">
+          <ul>
+            <li>
+                Item: {{ plant.product.product_name }}
+                
+            </li>
+            <li>
+              Ordered By: {{ plant.user.name }}
+            </li>
+            <li>
+              {% widthratio plant.product.price 1 plant.quantity as total_amount %}
+              Total Amount: ₹{{ total_amount }}
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+          <b>Payment System & Shipping Address</b>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <form action="{% url 'buy_now' plant.id %}" method="post">
+            {% csrf_token %}
+            Address: <br> <input type="text" name="street_address" value="{{ user.street_address}}"><br>
+                     <input type="text" name="city" value="{{ user.city}}"><br>
+                     <input type="text" name="state" value="{{ user.state}}"><br>
+                     <input type="text" name="zipcode" value="{{ user.zipcode}}"><br>
+                     <input type="text" name="country" value="{{ user.country}}">
+            <!-- <button type="submit" class="card-link buy-now-button" onclick="ordersuccess()">Buy Now</button> -->
+
+            <div style="margin-left: 280px; margin-top: -32px;">
+              <form action="" method="post" class="custom-stripe-form">
+                {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_51Pms7zRvtiLvf5RGNuK3W7xAzF6u1Dy6iSuwfAxg9uLjflHZqhEbbu02YNLsYGcyzGhTFlHlV3WnQ58xxtqgGtYi00C2VGr1em"
+                data-description="Payment Gateway"
+                data-amount= "500"
+                data-locals= "auto">
+              </script>
+              </form>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function ordersuccess(){
+      alert("Order Placed Successfully");
+    } 
+  </script>
+{% endblock %}

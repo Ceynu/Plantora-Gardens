@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Customer Registration
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+<br>
+<br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-4 col-4 col-lg-4 col-xl-1">
+        <section >
+        
+    </section></div>
+      <div class="col-xs-4 col-md-4 col-4 col-lg-4 col-xl-1">
+        <form action="" method="POST" enctype="multipart/form-data"  style="background-color: rgb(224, 224, 223);height: 900px; width: 500px;margin-left: 230px;margin-top: 0;border-radius: 12px; border:3px solid rgb(189, 180, 180);opacity: .85;">
+          {% csrf_token %}
+          <!-- <h1 style="margin-left: 170px;color:rgb(97, 119, 64);">---</h1> -->
+          <h1 style="margin-left: 170px;margin-bottom: 30px;color: white;background-color:rgb(224, 224, 223) ;color: rgb(125, 129, 133);">Sign Up</h1>
+          
+          <!-- name -->
+          <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+            <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+            <input type="text" id="btn1" name="name" class="form-control"  placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" autocomplete="off" >
+          </div>
+        <!-- name -->
+
+         <br>
+      
+      <br>
+
+        <!-- phone number -->
+          <div style="width: 250px; margin-left: 120px;"  class="input-group mb-3">
+            <!-- <span class="input-group-text" id="basic-addon1">Phone number</span> -->
+            <input type="text" class="form-control" name="contact_number" placeholder="Contact number" aria-label="Username" aria-describedby="basic-addon1">
+          </div> 
+        <!-- phone number -->
+
+      <br>
+
+        <!-- street address -->
+          <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+            <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+            <input type="text" class="form-control" name="street_address" placeholder="Street Address" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        <!-- street address -->
+
+      <br>
+
+       <!-- city -->
+       <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+        <input type="text" class="form-control" name="city" placeholder="city" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+       <!-- city -->
+
+      <br>
+
+      <!-- state -->
+      <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+        <input type="text" class="form-control" name="state" placeholder="state" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+       <!-- state -->
+
+      <br>
+
+      <!-- zipcode -->
+      <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+        <input type="number" class="form-control" name="zipcode" placeholder="zipcode" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+       <!-- zipcode -->
+
+      <br>
+
+      <!-- country -->
+      <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+        <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+        <input type="text" class="form-control" name="country" placeholder="country" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+       <!-- country -->
+
+      <br>
+
+        <!-- email -->
+        <div style="width: 250px; margin-left: 120px;" class="mb-3">
+            <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label>  -->
+            <input type="text" class="form-control" name="email" id="exampleFormControlInput1" placeholder="E-mail">
+          </div>
+        <!-- email -->
+
+      <br>
+
+        <!-- password -->
+        <!-- <label for="inputPassword5" class="form-label">Password</label> -->
+        <div style="width: 250px; margin-left: 120px;">
+          <input type="text" id="inputPassword5" name="password" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password">
+        </div>
+      <br>
+
+        <!-- password -->
+
+         <!-- image -->
+         <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+          <!-- <span class="input-group-text" id="basic-addon1">Image</span> -->
+          <input type="file" class="form-control" name="image" placeholder="Upload your photo" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <!-- image -->
+
+        <button style="background-color: rgb(97, 119, 64);color: white;border: 2px solid white;border-radius: 5px;margin-left: 200px;.btn-1:hover {opacity: 1}" type="submit" class="btn-1">Sign Up</button>
+        
+        </form>
+      </div>
+    </div>
+  </div> 
+
+{% endblock %}
+

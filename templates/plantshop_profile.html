@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Plant Shop Profile
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+<div class="padding" style="margin-top: 100px; margin-left: 300px;">
+  <div class="col-md-8">
+      <!-- Column -->
+      <div class="card"> <img style="height:450px;"  src="../media/{{result.image}}" alt="Card image cap">
+          <div class="card-body little-profile text-center">
+              <h3 class="m-b-0">Name:{{result.name}} </h3>
+              <p>{{result.address}}</p> <a href="{% url 'edit_plantshop' id=result.id %}" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Edit</a>
+              <div  class="row text-center m-t-20">
+                  <div  class="col-lg-4 col-md-4 m-t-20">
+                        <h3>Contact</h3>
+                      <h4 class="m-b-0 font-light"></h4><small>{{result.phone}}</small>
+                  </div>
+                  <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3></h3>
+                      <h4 class="m-b-0 font-light"></h4><small></small>
+                  </div>
+                  <div  class="col-lg-4 col-md-4 m-t-20">
+                    <h3>E-mail</h3>
+                  <h4 class="m-b-0 font-light"></h4><small>{{result.email}}</small>
+                  
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

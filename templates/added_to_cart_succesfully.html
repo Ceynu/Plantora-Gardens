@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Added to cart
+{%endblock%}
+
+{% block content %}
+
+{% load static %}
+
+<div id="added_success">
+    <h1 style="margin-top:100px;margin-left: 50px;color: rgb(13, 13, 13);">Added succesfully!</h1>
+    <!-- <a type="button" style="background-color: olivedrab;color: white; border: 1px solid white;border-radius: 4px;margin-left: 50px;text-decoration: none;" href="{% url 'add_product' %}">Add another +</a> -->
+</div>
+
+
+{% endblock %}
