@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{%block title%}
+student_registration
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<body style="background-color:#799351;">
+  
+
+  <form action="" method="POST" enctype="multipart/form-data" style="background-color: rgb(97, 119, 64);height: 750px; width: 500px;margin-left: 390px;margin-top: 50px;border-radius: 10px;">
+    {% csrf_token %}
+    <h1 style="margin-left: 170px;color:rgb(97, 119, 64);">---</h1>
+    <h1 style="margin-left: 170px;margin-bottom: 30px;color: white;background-color:rgb(97, 119, 64) ;">Sign Up</h1>
+    <!--name -->
+    <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+      <input type="text" id="btn1" name="name" class="form-control"  placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" >
+    </div>
+    <!--name -->
+
+  <!-- course -->
+  <select style="width: 250px; margin-left: 120px;" name="course" class="form-select" aria-label="Default select example">
+      <option selected>Course</option>
+      <option value="BCA">BCA</option>
+      <option value="MCA">MCA</option>
+      <option value="Bsc CS">Bsc CS</option>
+      <option value="Msc CS">Msc CS</option>
+      <option value="BCom CA">BCom CA</option>
+      <option value="BCom management">BCom management</option>
+      <option value="Bsc Physics">Bsc Physics</option>
+      <option value="Bsc Chemistry">Bsc Chemistry</option>
+    </select>
+  <!-- course -->
+
+   <!--year-->
+   <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+    <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+    <input type="text" id="btn1" name="name" class="form-control"  placeholder="Year" aria-label="Username" aria-describedby="basic-addon1" >
+  </div>
+  <!--year-->
+
+
+ 
+<br>
+  
+<!--year-->
+  <select style="width: 250px; margin-left: 120px;" name="year" class="form-select" aria-label="Default select example">
+      <option selected>Year</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2016">2016</option>
+    </select>
+
+<!--year-->
+
+<br>
+  <!-- department -->
+  <select style="width: 250px; margin-left: 120px;" name="department" class="form-select" aria-label="Default select example">
+      <option selected>Department</option>
+      <option value="option1">option1</option>
+      <option value="option2">option2</option>
+      <option value="option3">option3</option>
+      <option value="option4">option4</option>
+  </select>
+   <!-- deparmtnet -->
+
+ <!--phone -->
+ <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+  <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+  <input type="number" id="btn1" name="phone" class="form-control"  placeholder="phone" aria-label="Username" aria-describedby="basic-addon1" >
+</div>
+<!-- phone -->
+
+
+<br>
+  <!-- address -->
+    <div style="width: 250px; margin-left: 120px;"  class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Phone number</span> -->
+      <input type="text" class="form-control" name="address" placeholder="rating" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+  <!-- address -->
+
+  <!-- email -->
+    <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+      <input type="email" class="form-control" name="email" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  <!-- email -->
+
+ <!--password -->
+ <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+  <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+  <input type="password" id="btn1" name="password" class="form-control"  placeholder="password" aria-label="Username" aria-describedby="basic-addon1" >
+</div>
+<!-- password -->
+ 
+  <!-- image -->
+  <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+    <!-- <span class="input-group-text" id="basic-addon1">Image</span> -->
+    <input type="file" class="form-control" name="image" placeholder="Image" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <!-- image -->
+  <button type="submit" class="btn-1">Sign Up</button>
+
+  <!-- <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div> -->
+  </form>
+    
+</body> 
+      
+
+{% endblock %}

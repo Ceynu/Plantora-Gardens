@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%block title%}
+complaint_registration
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<!-- <body style=""> -->
+
+  <form action="complaintreg/{{res.id}}" method="POST" enctype="multipart/form-data" style="height: 700px; width: 500px;margin-left: 400px; margin-top: 50px;" >
+    {% csrf_token %}
+    <div class="mb-3">
+      
+      
+      <input type="text" id="btn1" name="name" class="form-control"  placeholder="Username" value="{{res.name}}" readonly>
+      <br>
+      <input type="text" id="btn1" name="name" class="form-control"  placeholder="Username" value="{{result.name}}" readonly>
+      <br>
+      <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
+      <textarea class="form-control" id="description" name="description" rows="3" placeholder="Write your complaint here!"></textarea>
+  </div>
+    <br>
+  <div>
+    <button id="replyButton" type="submit" class="btn btn-primary" >Register Complaint</button>
+    </div>
+</form>
+<!-- </body> -->
+
+<!-- JavaScript for confirmation dialog -->
+
+
+{%endblock%}
+
+
+

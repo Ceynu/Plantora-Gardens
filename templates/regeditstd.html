@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{%block title%}
+student_registration
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<body style="background-color:#799351;">
+  
+
+  <form action="stdupdateext/{{result.id}}" method="POST"  enctype="multipart/form-data" style="background-color: rgb(97, 119, 64);height: 775px; width: 500px;margin-left: 390px;margin-top: 50px;border-radius: 10px;">
+    {% csrf_token %}
+    <h1 style="margin-left: 170px;color:rgb(97, 119, 64);">---</h1>
+    <h1 style="margin-left: 170px;margin-bottom: 30px;color: white;background-color:rgb(97, 119, 64) ;">Sign Up</h1>
+    <!-- name -->
+    <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+      <input type="text" id="btn1" name="name" value="{{result.name}}" class="form-control"  placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
+    </div>
+  <!-- name -->
+
+  <!-- course -->
+  <select style="width: 250px; margin-left: 120px;" name="course" value="{{result.course}}" class="form-select" aria-label="Default select example">
+      <option selected>Course</option>
+      <option value="BCA">BCA</option>
+      <option value="MCA">MCA</option>
+      <option value="Bsc CS">Bsc CS</option>
+      <option value="Msc CS">Msc CS</option>
+      <option value="BCom CA">BCom CA</option>
+      <option value="BCom management">BCom management</option>
+      <option value="Bsc Physics">Bsc Physics</option>
+      <option value="Bsc Chemistry">Bsc Chemistry</option>
+    </select>
+  <!-- course -->
+<br>
+  <!-- year -->
+  <select style="width: 250px; margin-left: 120px;" name="year" value="{{result.year}}" class="form-select" aria-label="Default select example">
+      <option selected>Year</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2016">2016</option>
+    </select>
+  <!-- year -->
+<br>
+  <!-- Department -->
+  <select style="width: 250px; margin-left: 120px;" name="department" value="{{result.department}}" class="form-select" aria-label="Default select example">
+      <option selected>Department</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Physics">Physics</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Commerce">Commerce</option>
+  </select>
+   <!-- Department -->
+<br>
+  <!-- phone number -->
+    <div style="width: 250px; margin-left: 120px;"  class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Phone number</span> -->
+      <input type="text" class="form-control" name="phone" value="{{result.phone}}" placeholder="Phone Number" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+  <!-- phone number -->
+
+  <!-- address -->
+    <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Address</span> -->
+      <input type="text" class="form-control" name="address" value="{{result.address}}" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  <!-- address -->
+
+  <!-- email -->
+  <div style="width: 250px; margin-left: 120px;" class="mb-3">
+      <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label>  -->
+      <input type="email" class="form-control" name="email" value="{{result.email}}" id="exampleFormControlInput1" placeholder="E-mail">
+    </div>
+  <!-- email -->
+
+  <!-- password -->
+  <!-- <label for="inputPassword5" class="form-label">Password</label> -->
+  <div style="width: 250px; margin-left: 120px;">
+    <input type="password" id="inputPassword5" name="password" value="{{result.password}}" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password">
+  </div>
+<br>
+
+  <!-- password -->
+  
+  <!-- image -->
+  <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+    <!-- <span class="input-group-text" id="basic-addon1">Image</span> -->
+    <input type="file" class="form-control" name="image" placeholder="Image" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <!-- image -->
+  <button type="submit" value="Save" class="btn-1">Update</button>
+
+  <!-- <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div> -->
+  </form>
+    
+</body> 
+      
+
+{% endblock %}

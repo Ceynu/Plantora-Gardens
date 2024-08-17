@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+teacher_list
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<!-- Section: Design !-->
+<div class="container">
+    <h1 style="margin-left: 420px;">Teacher List</h1>
+    <br><br><br>
+</div>
+
+<table class="table">
+    <thead>
+        <th scope="'col">Teacher Name</th>
+        <th scope="'col">Department</th>
+        <!-- <th scope="'col">Gender</th> -->
+        <!-- <th scope="'col">Address</th> -->
+        <!-- <th scope="'col">Phone</th> -->
+        <!-- <th scope="'col">E-mail</th> -->
+        <th scope="'col">Image</th>
+        <th scope="'col">Complaint</th>
+        <th scope="'col">Reply</th>
+    </thead>
+    <tbody>
+        {% for p in tc %}
+        <tr>
+            <td>{{p.name}}</td>
+            <td>{{p.department}}</td>
+            <td><img src="{{p.image.url}}" alt="" class="img_fluid" style="width:100px;"></td>
+            <td><a href="{% url 'complaint_registration' id=p.id %}">Register Complaint</a></td>
+            <td><a href="{% url 'student_view_reply' id=p.id %}">View reply</a></td>
+            
+            
+
+                 
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+    

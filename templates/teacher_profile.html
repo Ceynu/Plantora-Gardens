@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Teacher profile
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="box">
+    <div id="overlay">
+      <div class="image">
+        <div class="trick">
+            <img src="../media/{{result.image}}" alt="" class="image" style="margin-top: -25px;">
+        </div>
+      </div>
+      <ul class="text">{{result.name}}</ul>
+      
+
+
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading " role="tab" id="headingOne">
+      <h4 class="panel-title ">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="" aria-expanded="" aria-controls="collapseOne">
+          <div class="title  btn btn-danger btn-outline btn-lg">View complaints</div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <p class="panel-body">
+        Walter has been building websites for years. He enjoys making unique websites and web projects. His hobbies include photography, woodworking, leatherworking, fishing, and mid century modern furniture.
+      </p>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <!-- <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="" aria-expanded="false" aria-controls=""> -->
+          <div class="title btn btn-danger btn-outline btn-lg">Info</div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+
+        
+        
+           <form id="form" class="topBefore">
+
+            
+            
+            <p>Phone: {{result.phone}}</p>
+            <p>E-mail: {{result.email}}</p>
+            <p>Password: {{result.password}}</p>
+
+            <a href="{% url 'edittchr' id=result.id %}"><img src="{% static 'images\icons8-edit-100 (1).png' %}" style="height: 30px;width: 30px;margin-left: 30px;"></a>
+          <a href="{% url 'tchrdlt' id=result.id %}" onclick="return deletecheck()"><img src="{% static 'images\icons8-trash-100 (1).png' %}" style="height: 30px;width: 30px;margin-left: 180px;"></a>
+          
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function deletecheck()
+  {
+    return confirm("Are you sure that you want to delete your account ?")
+  }
+</script>
+
+
+{% endblock %}
+
+
+

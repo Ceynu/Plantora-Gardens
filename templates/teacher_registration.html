@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{%block title%}
+teacher_registration
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<body style="background-color:#799351;">
+  
+
+  <form action="" method="POST" enctype="multipart/form-data" style="background-color: rgb(97, 119, 64);height: 550px; width: 500px;margin-left: 390px;margin-top: 50px;border-radius: 10px;">
+    {% csrf_token %}
+    <h1 style="margin-left: 170px;color:rgb(97, 119, 64);">---</h1>
+    <h1 style="margin-left: 170px;margin-bottom: 30px;color: white;background-color:rgb(97, 119, 64) ;">Sign Up</h1>
+    <!-- name -->
+    <div style="width: 250px; margin-left: 120px;margin-bottom: 20px;" class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Name</span> -->
+      <input type="text" id="btn1" name="name" class="form-control"  placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" >
+    </div>
+  <!-- name -->
+
+  <!-- Department -->
+  <select style="width: 250px; margin-left: 120px;" name="department" class="form-select" aria-label="Default select example">
+      <option selected>Department</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Physics">Physics</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Commerce">Commerce</option>
+  </select>
+   <!-- Department -->
+<br>
+  <!-- phone number -->
+    <div style="width: 250px; margin-left: 120px;"  class="input-group mb-3">
+      <!-- <span class="input-group-text" id="basic-addon1">Phone number</span> -->
+      <input type="text" class="form-control" name="phone" placeholder="Phone Number" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+  <!-- phone number -->
+
+  <!-- email -->
+  <div style="width: 250px; margin-left: 120px;" class="mb-3">
+      <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label>  -->
+      <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="E-mail">
+    </div>
+  <!-- email -->
+
+  <!-- password -->
+  <!-- <label for="inputPassword5" class="form-label">Password</label> -->
+  <div style="width: 250px; margin-left: 120px;">
+    <input type="password" id="inputPassword5" name="password" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password">
+  </div>
+<br>
+
+  <!-- password -->
+  
+  <!-- image -->
+  <div style="width: 250px; margin-left: 120px;" class="input-group mb-3">
+    <!-- <span class="input-group-text" id="basic-addon1">Image</span> -->
+    <input type="file" class="form-control" name="image" placeholder="Image" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <!-- image -->
+  <button type="submit" class="btn-1">Sign Up</button>
+
+  <!-- <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div> -->
+  </form>
+    
+</body> 
+      
+
+{% endblock %}
